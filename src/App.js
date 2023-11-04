@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import * as ST from "./component/style";
+import Button from "./component/Button";
+import Input from "./component/Input";
+// import * as S from './shared/ButtonStyle'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ST.mainContainer>
+        <Button></Button>
+        <Input></Input>
+        <ST.mainBox>
+          <ST.mainH3>
+            MODAL
+            <ST.flexbox>
+              <button>open modal</button>
+              <button>open modal</button>
+            </ST.flexbox>
+          </ST.mainH3>
+        </ST.mainBox>
+        <ST.mainBox>
+          <ST.mainH3>SELECT</ST.mainH3>
+        </ST.mainBox>
+      </ST.mainContainer>
+    </>
   );
 }
 
