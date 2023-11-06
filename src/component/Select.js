@@ -8,18 +8,11 @@ function Select() {
 
   const [firstDisplayOn, setFirstDisplayOn] = useState(false);
   const [secondDisplayOn, setSecondDisplayOn] = useState(false);
+
   const overflowRef = useRef("");
 
   const firstOnClickDisplaySelectHandler = () => {
-    // console.log(ulref.current.style);
-    // ulref.current.style.display = "block";
-
     setFirstDisplayOn(!firstDisplayOn);
-    //여기서 바로 display none을 바꾸는 방법은 없나?
-
-    // const ulDisplay = document.querySelector(".ulDisplay");
-    // console.log(ulDisplay.style);
-    // console.log(ulref.current.style);
     setSecondDisplayOn(false);
     overflowRef.current.style.overflow = "visible";
   };
@@ -29,6 +22,8 @@ function Select() {
     setFirstDisplayOn(false);
     overflowRef.current.style.overflow = "hidden";
   };
+
+  const selectContents = ["리액트", "자바", "스프링"];
 
   return (
     <ST.SelectMainBox $border={"2px solid #ddd"} ref={overflowRef}>
@@ -49,38 +44,30 @@ function Select() {
           </ST.SelectTitle>
         </ST.Flexbox>
 
-        {/* <ST.UlContent ref={ulref} className="ulDisplay">
-          <ST.LiContent onClick={() => setTitle("리액트")}>리액트</ST.LiContent>
-          <ST.LiContent onClick={() => setTitle("자바")}>자바</ST.LiContent>
-          <ST.LiContent onClick={() => setTitle("스프링")}>스프링</ST.LiContent>
-        </ST.UlContent> */}
-
         {/* select 1 -> selection */}
-
         <ST.SelectPositionBox>
           {firstDisplayOn && (
             <ST.UlContent $left={0}>
-              <ST.LiContent onClick={() => setFirstTitle("리액트")}>
-                리액트
-              </ST.LiContent>
-              <ST.LiContent onClick={() => setFirstTitle("자바")}>
-                자바
-              </ST.LiContent>
-              <ST.LiContent onClick={() => setFirstTitle("스프링")}>
-                스프링
-              </ST.LiContent>
+              {selectContents.map((item) => {
+                return (
+                  <ST.LiContent onClick={() => setFirstTitle(`${item}`)}>
+                    {item}
+                  </ST.LiContent>
+                );
+              })}
             </ST.UlContent>
           )}
 
           {/* selec2 -> selection */}
           {secondDisplayOn && (
             <ST.UlContent $right={0}>
-              <ST.LiContent onClick={() => setSecondTitle("리액트")}>
-                리액트
-              </ST.LiContent>
-              <ST.LiContent onClick={() => setSecondTitle("자바")}>
-                자바
-              </ST.LiContent>
+              {selectContents.map((item) => {
+                return (
+                  <ST.LiContent onClick={() => setSecondTitle(`${item}`)}>
+                    {item}
+                  </ST.LiContent>
+                );
+              })}
             </ST.UlContent>
           )}
         </ST.SelectPositionBox>

@@ -40,7 +40,7 @@ export const MainButton = styled.button`
 `;
 
 //모달 스타일
-export const modalOverlay = styled.div`
+export const ModalOverlay = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: #ddd;
@@ -50,7 +50,7 @@ export const modalOverlay = styled.div`
   opacity: 0.7;
 `;
 
-export const modalBody = styled.div`
+export const ModalBody = styled.div`
   width: 50%;
   height: 30%;
   position: absolute;
@@ -64,7 +64,7 @@ export const modalBody = styled.div`
   z-index: 100;
 `;
 
-export const roundCloseModalBtn = styled.div`
+export const RoundCloseModalBtn = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
