@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import * as ST from "../component/style";
 import { createPortal } from "react-dom";
 
-//reactPortal:React 애플리케이션에서 컴포넌트를 현재 컴포넌트 트리의 외부 DOM 요소로 렌더링하는 메커니즘을 제공하는 React의 기능, React 애플리케이션 내에서 컴포넌트를 다른 위치에 렌더링하거나 특정 DOM 요소 위에 렌더링하는 데 유용
-//createPortal(child, container)
-
 function Modal() {
   const [firstIsOpen, setFirstIsOpen] = useState(false);
   const [secondIsOpen, setSecondIsOpen] = useState(false);
@@ -21,6 +18,9 @@ function Modal() {
     background: "rgb(85, 239, 196)",
   };
 
+  const firstOnCLickMainbtn = () => setFirstIsOpen(true);
+  const secondOnCLickMainbtn = () => setSecondIsOpen(true);
+
   return (
     <>
       <ST.MainBox>
@@ -29,7 +29,8 @@ function Modal() {
           <ST.Flexbox>
             <ST.MainButton
               $buttonSty={buttonSty0}
-              onClick={() => setFirstIsOpen(true)}
+              name="first"
+              onClick={firstOnCLickMainbtn}
             >
               open modal
             </ST.MainButton>
@@ -41,7 +42,8 @@ function Modal() {
 
             <ST.MainButton
               $buttonSty={buttonSty1}
-              onClick={() => setSecondIsOpen(true)}
+              name="second"
+              onClick={secondOnCLickMainbtn}
             >
               open modal
             </ST.MainButton>
@@ -57,6 +59,7 @@ function Modal() {
   );
 }
 
+//첫번째 버튼을 눌렀을 때 나오는 모달
 function FirstModalLayout({ onClose }) {
   return (
     <>
@@ -72,6 +75,7 @@ function FirstModalLayout({ onClose }) {
   );
 }
 
+//첫번째 버튼을 눌렀을 때 나오는 모달
 function SeondModalLayout({ onClose }) {
   return (
     <>

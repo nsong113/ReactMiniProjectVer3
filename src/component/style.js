@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 //바디 스타일
 
-export const mainContainer = styled.div`
+export const MainContainer = styled.div`
   width: 80%;
   height: 100vh;
   padding: 20px;
@@ -12,7 +12,6 @@ export const mainContainer = styled.div`
 export const MainBox = styled.div`
   width: 80%;
   height: 20%;
-  border: ${(props) => (props.$border ? props.$border : "")};
 `;
 
 export const MainH3 = styled.h3`
@@ -73,14 +72,20 @@ export const roundCloseModalBtn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  //호버 구현하기 &와 :사이 빈칸이 있으면 안된다.
   &:hover {
     border: 1px solid black;
   }
 `;
 
 //셀렉트 스타일
-export const selectTitle = styled.div`
+export const SelectMainBox = styled.div`
+  width: 80%;
+  height: 25%;
+  border: ${(props) => props.$border};
+  /* overflow: hidden; */
+`;
+
+export const SelectTitle = styled.div`
   width: 280px;
   height: 40px;
   margin-left: 10px;
@@ -91,17 +96,22 @@ export const selectTitle = styled.div`
   border-radius: 5px;
 `;
 
-export const ulContent = styled.ul`
+export const UlContent = styled.ul`
   width: 300px;
   height: 120px;
   margin-left: 10px;
   padding-left: 0;
   border: 1px solid #ddd;
   border-radius: 5px;
-  /* display: none; */
+  position: absolute;
+  top: 0;
+  left: ${(props) =>
+    typeof props.$left !== "undefined" ? props.$left : "auto"};
+  right: ${(props) =>
+    typeof props.$right !== "undefined" ? props.$right : "auto"};
 `;
 
-export const liContent = styled.li`
+export const LiContent = styled.li`
   list-style: none;
   line-height: 40px;
   width: 100%-20px;
@@ -109,8 +119,13 @@ export const liContent = styled.li`
   height: 40px;
   border-radius: 5px;
   background-color: white;
-
   &:hover {
     background-color: #ddd;
   }
+`;
+
+export const SelectPositionBox = styled.div`
+  width: 95%;
+  margin-left: 20px;
+  position: relative;
 `;

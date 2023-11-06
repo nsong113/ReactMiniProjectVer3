@@ -3,74 +3,89 @@ import * as ST from "../component/style";
 import { FiChevronDown } from "react-icons/fi";
 
 function Select() {
-  const [title, setTitle] = useState("리엑트");
-  const [displayOn, setDisplayOn] = useState(false);
-  // const ulref = useRef("");
+  const [firstTitle, setFirstTitle] = useState("리엑트");
+  const [secondTitle, setSecondTitle] = useState("리엑트");
 
-  const onClickDisplaySelectHandler = () => {
+  const [firstDisplayOn, setFirstDisplayOn] = useState(false);
+  const [secondDisplayOn, setSecondDisplayOn] = useState(false);
+  const overflowRef = useRef("");
+
+  const firstOnClickDisplaySelectHandler = () => {
     // console.log(ulref.current.style);
     // ulref.current.style.display = "block";
 
-    setDisplayOn(!displayOn);
+    setFirstDisplayOn(!firstDisplayOn);
     //여기서 바로 display none을 바꾸는 방법은 없나?
 
     // const ulDisplay = document.querySelector(".ulDisplay");
     // console.log(ulDisplay.style);
     // console.log(ulref.current.style);
+    setSecondDisplayOn(false);
+    overflowRef.current.style.overflow = "visible";
+  };
+
+  const secondOnClickDisplaySelectHandler = () => {
+    setSecondDisplayOn(!secondDisplayOn);
+    setFirstDisplayOn(false);
+    overflowRef.current.style.overflow = "hidden";
   };
 
   return (
-    <ST.MainBox border={"2px solid #ddd"}>
+    <ST.SelectMainBox $border={"2px solid #ddd"} ref={overflowRef}>
       <ST.MainH3>SELECT</ST.MainH3>
 
       <div>
         <ST.Flexbox>
           {/* select1 */}
-          <ST.selectTitle onClick={onClickDisplaySelectHandler}>
+          <ST.SelectTitle onClick={firstOnClickDisplaySelectHandler}>
             <FiChevronDown /> &nbsp; &nbsp;
-            {title}
-          </ST.selectTitle>
+            {firstTitle}
+          </ST.SelectTitle>
 
           {/* select2 */}
-          <ST.selectTitle onClick={onClickDisplaySelectHandler}>
+          <ST.SelectTitle onClick={secondOnClickDisplaySelectHandler}>
             <FiChevronDown /> &nbsp; &nbsp;
-            {title}
-          </ST.selectTitle>
+            {secondTitle}
+          </ST.SelectTitle>
         </ST.Flexbox>
 
-        {/* <ST.ulContent ref={ulref} className="ulDisplay">
-          <ST.liContent onClick={() => setTitle("리액트")}>리액트</ST.liContent>
-          <ST.liContent onClick={() => setTitle("자바")}>자바</ST.liContent>
-          <ST.liContent onClick={() => setTitle("스프링")}>스프링</ST.liContent>
-        </ST.ulContent> */}
+        {/* <ST.UlContent ref={ulref} className="ulDisplay">
+          <ST.LiContent onClick={() => setTitle("리액트")}>리액트</ST.LiContent>
+          <ST.LiContent onClick={() => setTitle("자바")}>자바</ST.LiContent>
+          <ST.LiContent onClick={() => setTitle("스프링")}>스프링</ST.LiContent>
+        </ST.UlContent> */}
 
         {/* select 1 -> selection */}
-        {displayOn && (
-          <ST.ulContent>
-            <ST.liContent onClick={() => setTitle("리액트")}>
-              리액트
-            </ST.liContent>
-            <ST.liContent onClick={() => setTitle("자바")}>자바</ST.liContent>
-            <ST.liContent onClick={() => setTitle("스프링")}>
-              스프링
-            </ST.liContent>
-          </ST.ulContent>
-        )}
 
-        {/* selec2 -> selection */}
-        {displayOn && (
-          <ST.ulContent>
-            <ST.liContent onClick={() => setTitle("리액트")}>
-              리액트
-            </ST.liContent>
-            <ST.liContent onClick={() => setTitle("자바")}>자바</ST.liContent>
-            <ST.liContent onClick={() => setTitle("스프링")}>
-              스프링
-            </ST.liContent>
-          </ST.ulContent>
-        )}
+        <ST.SelectPositionBox>
+          {firstDisplayOn && (
+            <ST.UlContent $left={0}>
+              <ST.LiContent onClick={() => setFirstTitle("리액트")}>
+                리액트
+              </ST.LiContent>
+              <ST.LiContent onClick={() => setFirstTitle("자바")}>
+                자바
+              </ST.LiContent>
+              <ST.LiContent onClick={() => setFirstTitle("스프링")}>
+                스프링
+              </ST.LiContent>
+            </ST.UlContent>
+          )}
+
+          {/* selec2 -> selection */}
+          {secondDisplayOn && (
+            <ST.UlContent $right={0}>
+              <ST.LiContent onClick={() => setSecondTitle("리액트")}>
+                리액트
+              </ST.LiContent>
+              <ST.LiContent onClick={() => setSecondTitle("자바")}>
+                자바
+              </ST.LiContent>
+            </ST.UlContent>
+          )}
+        </ST.SelectPositionBox>
       </div>
-    </ST.MainBox>
+    </ST.SelectMainBox>
   );
 }
 

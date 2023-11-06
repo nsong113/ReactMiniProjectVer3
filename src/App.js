@@ -5,17 +5,15 @@ import Input from "./component/Input";
 import Modal from "./component/Modal";
 import Select from "./component/Select";
 
-// import * as S from './shared/ButtonStyle'
-
 function App() {
   return (
     <>
-      <ST.mainContainer>
+      <ST.MainContainer>
         <Button></Button>
         <Input></Input>
         <Modal></Modal>
         <Select></Select>
-      </ST.mainContainer>
+      </ST.MainContainer>
     </>
   );
 }
