@@ -3,6 +3,8 @@ import * as ST from "./component/style";
 import Button from "./component/Button";
 import Input from "./component/Input";
 import Modal from "./component/Modal";
+import Select from "./component/Select";
+
 // import * as S from './shared/ButtonStyle'
 
 function App() {
@@ -12,10 +14,7 @@ function App() {
         <Button></Button>
         <Input></Input>
         <Modal></Modal>
-
-        <ST.mainBox>
-          <ST.mainH3>SELECT</ST.mainH3>
-        </ST.mainBox>
+        <Select></Select>
       </ST.mainContainer>
     </>
   );

@@ -29,19 +29,19 @@ function Button() {
   };
 
   return (
-    <ST.mainBox>
-      <ST.mainH3>
+    <ST.MainBox>
+      <ST.MainH3>
         BUTTON
-        <ST.flexbox>
-          <ST.mainButton buttonSty={buttonSty0} onClick={alertHandler}>
+        <ST.Flexbox>
+          <ST.MainButton $buttonSty={buttonSty0} onClick={alertHandler}>
             Large Primary Button
-          </ST.mainButton>
-          <ST.mainButton buttonSty={buttonSty1}>Medium</ST.mainButton>
-          <ST.mainButton buttonSty={buttonSty2}>Small</ST.mainButton>
-        </ST.flexbox>
-        <ST.flexbox>
-          <ST.mainButton
-            buttonSty={{
+          </ST.MainButton>
+          <ST.MainButton $buttonSty={buttonSty1}>Medium</ST.MainButton>
+          <ST.MainButton $buttonSty={buttonSty2}>Small</ST.MainButton>
+        </ST.Flexbox>
+        <ST.Flexbox>
+          <ST.MainButton
+            $buttonSty={{
               ...buttonSty0,
               borderColor: "rgb(250, 177, 160)",
               font: "rgb(214, 48, 49)",
@@ -49,28 +49,28 @@ function Button() {
             onClick={inputTextHandler}
           >
             Large Primary Button
-          </ST.mainButton>
-          <ST.mainButton
-            buttonSty={{
+          </ST.MainButton>
+          <ST.MainButton
+            $buttonSty={{
               ...buttonSty1,
               background: "rgb(250, 177, 160)",
               font: "rgb(214, 48, 49)",
             }}
           >
             Medium
-          </ST.mainButton>
-          <ST.mainButton
-            buttonSty={{
+          </ST.MainButton>
+          <ST.MainButton
+            $buttonSty={{
               ...buttonSty2,
               background: "rgb(250, 177, 160)",
               font: "rgb(214, 48, 49)",
             }}
           >
             Small
-          </ST.mainButton>
-        </ST.flexbox>
-      </ST.mainH3>
-    </ST.mainBox>
+          </ST.MainButton>
+        </ST.Flexbox>
+      </ST.MainH3>
+    </ST.MainBox>
   );
 }
 

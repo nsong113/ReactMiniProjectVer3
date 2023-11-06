@@ -1,5 +1,7 @@
 import { styled } from "styled-components";
 
+//바디 스타일
+
 export const mainContainer = styled.div`
   width: 80%;
   height: 100vh;
@@ -7,34 +9,38 @@ export const mainContainer = styled.div`
   position: relative;
 `;
 
-export const mainBox = styled.div`
+export const MainBox = styled.div`
   width: 80%;
   height: 20%;
+  border: ${(props) => (props.$border ? props.$border : "")};
 `;
 
-export const mainH3 = styled.h3`
-  padding-bottom: 30px;
+export const MainH3 = styled.h3`
+  padding-bottom: 10px;
 `;
 
-export const flexbox = styled.div`
+export const Flexbox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
 `;
 
-export const mainButton = styled.button`
-  width: ${(props) => props.buttonSty.width};
-  height: ${(props) => props.buttonSty.height};
+//버튼 스타일
+export const MainButton = styled.button`
+  width: ${(props) => props.$buttonSty.width};
+  height: ${(props) => props.$buttonSty.height};
   border: 3px solid
     ${(props) =>
-      props.buttonSty.borderColor ? props.buttonSty.borderColor : "white"};
+      props.$buttonSty.borderColor ? props.$buttonSty.borderColor : "white"};
   background-color: ${(props) =>
-    props.buttonSty.background ? props.buttonSty.background : "white"};
+    props.$buttonSty.background ? props.$buttonSty.background : "white"};
   border-radius: 10px;
-  color: ${(props) => (props.buttonSty.font ? props.buttonSty.font : "black")};
+  color: ${(props) =>
+    props.$buttonSty.font ? props.$buttonSty.font : "black"};
 `;
 
+//모달 스타일
 export const modalOverlay = styled.div`
   width: 100vw;
   height: 100vh;
@@ -70,5 +76,41 @@ export const roundCloseModalBtn = styled.div`
   //호버 구현하기 &와 :사이 빈칸이 있으면 안된다.
   &:hover {
     border: 1px solid black;
+  }
+`;
+
+//셀렉트 스타일
+export const selectTitle = styled.div`
+  width: 280px;
+  height: 40px;
+  margin-left: 10px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+`;
+
+export const ulContent = styled.ul`
+  width: 300px;
+  height: 120px;
+  margin-left: 10px;
+  padding-left: 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  /* display: none; */
+`;
+
+export const liContent = styled.li`
+  list-style: none;
+  line-height: 40px;
+  width: 100%-20px;
+  padding-left: 20px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: white;
+
+  &:hover {
+    background-color: #ddd;
   }
 `;

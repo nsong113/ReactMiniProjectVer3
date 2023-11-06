@@ -92,11 +92,11 @@ function Input() {
   };
 
   return (
-    <ST.mainBox>
+    <ST.MainBox>
       {numberInput.current}
-      <ST.mainH3>
+      <ST.MainH3>
         INPUT
-        <ST.flexbox>
+        <ST.Flexbox>
           이름:{" "}
           <input
             type="text"
@@ -120,9 +120,9 @@ function Input() {
           />
           <button onClick={onClickAlertHandler}>저장</button>
           <br />
-        </ST.flexbox>
-      </ST.mainH3>
-    </ST.mainBox>
+        </ST.Flexbox>
+      </ST.MainH3>
+    </ST.MainBox>
   );
 }
 

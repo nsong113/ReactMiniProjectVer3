@@ -23,36 +23,36 @@ function Modal() {
 
   return (
     <>
-      <ST.mainBox>
-        <ST.mainH3>
+      <ST.MainBox>
+        <ST.MainH3>
           MODAL
-          <ST.flexbox>
-            <ST.mainButton
-              buttonSty={buttonSty0}
+          <ST.Flexbox>
+            <ST.MainButton
+              $buttonSty={buttonSty0}
               onClick={() => setFirstIsOpen(true)}
             >
               open modal
-            </ST.mainButton>
+            </ST.MainButton>
             {firstIsOpen &&
               createPortal(
                 <FirstModalLayout onClose={() => setFirstIsOpen(false)} />,
                 document.body
               )}
 
-            <ST.mainButton
-              buttonSty={buttonSty1}
+            <ST.MainButton
+              $buttonSty={buttonSty1}
               onClick={() => setSecondIsOpen(true)}
             >
               open modal
-            </ST.mainButton>
+            </ST.MainButton>
             {secondIsOpen &&
               createPortal(
                 <SeondModalLayout onClose={() => setSecondIsOpen(false)} />,
                 document.body
               )}
-          </ST.flexbox>
-        </ST.mainH3>
-      </ST.mainBox>
+          </ST.Flexbox>
+        </ST.MainH3>
+      </ST.MainBox>
     </>
   );
 }
@@ -63,10 +63,10 @@ function FirstModalLayout({ onClose }) {
       <ST.modalOverlay />
       <ST.modalBody>
         닫기와 확인 버튼 2개가 있고, 외부 영역을 눌러도 모달이 닫히지 않아요.
-        <ST.flexbox>
+        <ST.Flexbox>
           <button onClick={onClose}>닫기</button>
           <button>확인</button>
-        </ST.flexbox>
+        </ST.Flexbox>
       </ST.modalBody>
     </>
   );
@@ -77,10 +77,10 @@ function SeondModalLayout({ onClose }) {
     <>
       <ST.modalOverlay onClick={onClose} />
       <ST.modalBody>
-        <ST.flexbox>
+        <ST.Flexbox>
           닫기 버튼 1개가 있고, 외부 영역을 누르면 모달이 닫혀요. &nbsp;
           <ST.roundCloseModalBtn onClick={onClose}>x</ST.roundCloseModalBtn>
-        </ST.flexbox>
+        </ST.Flexbox>
       </ST.modalBody>
     </>
   );
